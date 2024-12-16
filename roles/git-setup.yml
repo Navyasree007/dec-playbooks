@@ -1,0 +1,6 @@
+---
+- name: master play book
+  hosts: all
+  become: true
+  roles:
+  - git-install-role

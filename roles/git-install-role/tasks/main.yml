@@ -1,0 +1,8 @@
+---
+# tasks file for git-install-role
+- name: install git
+  yum:
+    name: git
+    state: installed
+  when: ansible_os_family == "RedHat"
+

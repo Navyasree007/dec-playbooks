@@ -1,0 +1,9 @@
+---
+- name: playbook..
+  hosts: webserver
+  become: true
+  tasks:
+    - name: delete files
+      file: 
+       path: /home/ansadmin/dummyfile
+       state: absent

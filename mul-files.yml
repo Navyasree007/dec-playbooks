@@ -1,0 +1,27 @@
+---
+- name: Playbook
+  hosts: all
+  become: yes
+  tasks:    
+   - name: Ansible file module to create multiple files      
+     file:         
+       path: "{{ item }}"        
+       state: touch       
+       mode: 0421      
+       with_items:      
+       - devops1.txt      
+       - devops2.txt      
+       - devops3.txt
+
+############################
+#  tasks:
+#   - name: mul files are creating
+#     file:
+#       path: "{{item}}"
+#       state: touch
+#       mode: '0777'
+#       with_items:
+#         - demo1.txt
+#         - demo2.txt
+#         - demo3.txt
+###########################

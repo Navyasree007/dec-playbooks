@@ -1,0 +1,7 @@
+---
+# handlers file for setup-httpd-role
+- name: start httpd
+  service:
+    name: httpd
+    state: started
+  when: ansible_os_family == "RedHat"

@@ -1,0 +1,31 @@
+---
+- name: playbook
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: install java....
+    yum:
+      name: java
+      state: installed
+    when: ansible_os_family == "RedHat"
+  - name: download pkg...
+    get_url:
+      url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.98/bin/apache-tomcat-9.0.98.tar.gz
+      dest: /opt
+
+  - name: extract file
+    unarchive:
+      src: /opt/apache-tomcat-9.0.98.tar.gz
+      dest: /opt/
+      remote_src: yes
+
+  - name: file permission
+    file:
+      path: /opt/apache-tomcat-9.0.98/bin/startup.sh
+      mode: 0777
+
+  - name: start tomact
+    shell: nohup ./startup.sh
+    args:
+      chdir: /opt/apache-tomcat-9.0.98/bin 

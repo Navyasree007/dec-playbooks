@@ -1,0 +1,9 @@
+---
+- name: playbook
+  hosts: all
+  become: yes
+  tasks:
+  - name: install git...
+    yum:
+      name: git
+      state: installed

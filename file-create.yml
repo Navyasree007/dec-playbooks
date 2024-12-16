@@ -1,0 +1,13 @@
+---
+- name: file creation..
+  hosts: all
+  become: yes
+  tasks:
+    - name: file creating....!
+      file:
+        path: /home/ansadmin/dummyfile
+        state: touch
+        owner: ansadmin
+        group: ansadmin
+        mode: '0777'
+

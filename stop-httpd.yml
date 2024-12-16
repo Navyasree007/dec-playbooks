@@ -1,0 +1,10 @@
+---
+- name: playbook
+  hosts: all
+  become: yes
+  tasks:
+    - name: start/stop httpd...
+      service:
+        name: httpd
+  #      state: stopped
+        state: started 

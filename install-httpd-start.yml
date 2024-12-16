@@ -1,0 +1,14 @@
+---
+- name: playbook
+  hosts: all
+  tasks:
+    - name: installe httpd....
+      yum:
+        name: httpd
+        state: installed
+
+    - name: start httpd...
+      service:
+        name: httpd
+        state: started
+      

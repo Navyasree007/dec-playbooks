@@ -1,0 +1,10 @@
+---
+- name: pb
+  hosts: all
+  become: yes
+  tasks:
+    - name: install mul-pkg
+      yum:
+        name: ['git' , 'tree' , 'httpd']
+        state: installed
+
